@@ -1,5 +1,6 @@
 ---
-const { currentPath } = Astro.props;
+const currentPath =
+  typeof window !== "undefined" ? window.location.pathname : Astro.url.pathname;
 const links = [
   { href: "/", label: "home" },
   { href: "/projects", label: "projects" },
