@@ -2,7 +2,7 @@
 const { title } = Astro.props;
 import "../styles/global.css";
 import "../styles/styles.css";
-import NavBar from "../components/NavBar.astro";
+import NavBar from "../components/NavBar.tsx";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import SpaceBackground from "../components/SpaceBackground.astro";
@@ -48,7 +48,7 @@ import { ClientRouter } from "astro:transitions";
         <Header transition:persist />
 
         <!-- NAVBAR -->
-        <NavBar transition:persist />
+        <NavBar client:load />
 
         <!-- SLOT -->
         <main class="portfolio-content" transition:animate="fade">
