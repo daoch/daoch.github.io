@@ -1,0 +1,67 @@
+---
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+import "../styles/global.css";
+import "../styles/styles.css";
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SpaceBackground from "../components/SpaceBackground.astro";
+import { ClientRouter } from "astro:transitions";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title} | Diego Ochoa</title>
+    <ClientRouter />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+  </head>
+
+  <body>
+    <!-- FONDO ESPACIAL -->
+    <SpaceBackground />
+
+    <div id="root">
+      <div class="portfolio-container">
+        <!-- HEADER -->
+        <Header transition:persist />
+
+        <!-- NAVBAR -->
+        <NavBar currentPath={currentPath} transition:persist />
+
+        <!-- SLOT -->
+        <main class="portfolio-content" transition:animate="fade">
+          <slot />
+        </main>
+
+        <!-- FOOTER -->
+        <Footer transition:persist />
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <audio id="ambientAudio" src="/audio/audio.mp3" loop autoplay transition:persist
+></audio> -->

@@ -1,0 +1,51 @@
+---
+
+---
+
+<div class="absolute inset-0 -z-10" aria-hidden="true" transition:persist>
+  <canvas id="spaceCanvas"></canvas>
+</div>
+
+<script type="module">
+  const canvas = document.getElementById("spaceCanvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  const stars = Array.from({ length: 150 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+  }));
+
+  function draw() {
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0f0f1a";
+    stars.forEach((s) => {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      s.x += s.vx;
+      s.y += s.vy;
+
+      if (s.x < 0) s.x = canvas.width;
+      if (s.x > canvas.width) s.x = 0;
+      if (s.y < 0) s.y = canvas.height;
+      if (s.y > canvas.height) s.y = 0;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>

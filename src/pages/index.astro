@@ -1,16 +1,36 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <div class="section">
+    <h2 class="section-heading">About Me</h2>
+
+    <p class="body-text">
+      Hi, I'm <strong>Diego Ochoa</strong>, a backend developer specializing in <strong
+        >Java</strong
+      > and modern cloud-native architectures. I enjoy building scalable microservices,
+      designing event-driven systems, and implementing robust APIs that power distributed
+      applications. I also focus on leveraging Docker, Kubernetes, and cloud platforms
+      like <strong>AWS</strong> and <strong>Azure</strong> to deliver resilient and
+      maintainable solutions.
+    </p>
+
+    <div class="highlight-section">
+      <h2 class="section-heading">Experience</h2>
+
+      <ul class="section-list">
+        <li>Systems Analyst/Developer — SoftBrilliance (1y3m)</li>
+      </ul>
+    </div>
+
+    <div class="highlight-section">
+      <h2 class="section-heading">Education</h2>
+
+      <ul class="section-list">
+        <!-- <li>AWS Certified Cloud Practitioner — AWS (2025)</li> -->
+        <li>Computer Science Engineering — PUCP (2025)</li>
+      </ul>
+    </div>
+  </div>
+</Layout>

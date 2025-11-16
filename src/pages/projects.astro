@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectItem from "../components/ProjectItem.astro";
+
+const projects = [
+  {
+    name: "Streamlytics",
+    dateAward:
+      "1st Place Best Event-Driven System @ Global Backend Hackathon · Mar. 2025",
+    description:
+      "A real-time analytics platform for streaming sensor data using event-driven microservices to process millions of events per second with near-zero latency.",
+    tech: "Java, Spring Boot, Apache Kafka, PostgreSQL, Docker, Kubernetes, AWS",
+    link: "",
+  },
+  {
+    name: "OrderFlow",
+    dateAward:
+      "2nd Place Microservices Excellence @ Cloud Native Hackathon · Apr. 2025",
+    description:
+      "A distributed order processing system that ensures transactional integrity across multiple microservices using Saga patterns and message brokers.",
+    tech: "Quarkus, RabbitMQ, MySQL, Docker, Kubernetes, Azure",
+    link: "",
+  },
+  {
+    name: "Notifly",
+    dateAward:
+      "1st Place Scalable Notifications @ Event-Driven Hackathon · May. 2025",
+    description:
+      "A push notification platform capable of handling millions of notifications per hour across mobile and web, leveraging pub/sub architecture for scalability.",
+    tech: "Java, Spring Boot, Apache Kafka, Redis, MongoDB, Docker, AWS",
+    link: "",
+  },
+  {
+    name: "InventorySync",
+    dateAward:
+      "3rd Place Distributed Systems @ Retail Tech Hackathon · Jun. 2025",
+    description:
+      "A microservices system for synchronizing inventory across multiple warehouses and retail stores in real time using event sourcing.",
+    tech: "Quarkus, PostgreSQL, RabbitMQ, Kubernetes, Docker, Angular (dashboard), Azure",
+    link: "",
+  },
+  {
+    name: "PayStream",
+    dateAward:
+      "2nd Place Payment Microservices @ FinTech Hackathon · Jul. 2025",
+    description:
+      "A high-throughput payment processing system using distributed transactions and event-driven workflows to ensure reliability and consistency.",
+    tech: "Java, Spring Boot, Kafka, Cassandra, Docker, Kubernetes, AWS",
+    link: "",
+  },
+  {
+    name: "DataMesh",
+    dateAward:
+      "1st Place Cloud-Native Architecture @ Global Cloud Hackathon · Aug. 2025",
+    description:
+      "A scalable data mesh architecture that allows multiple teams to own and serve their data through microservices, with governance enforced via APIs.",
+    tech: "Quarkus, PostgreSQL, Kafka, Redis, Docker, Kubernetes, Azure, AWS",
+    link: "",
+  },
+];
+---
+
+<Layout title="Projects">
+  <div class="section">
+    <h2 class="section-heading">Projects</h2>
+    <div class="projects-list">
+      {projects.map((project) => <ProjectItem {...project} />)}
+    </div>
+  </div>
+</Layout>

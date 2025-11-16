@@ -1,0 +1,22 @@
+---
+const { name, description, tech, link, dateAward } = Astro.props;
+---
+
+<div class="project-item">
+  <h3 class="project-name">{name}</h3>
+  {dateAward && <p class="project-tech">{dateAward}</p>}
+  <p class="body-text">{description}</p>
+  {tech && <p class="project-tech">{tech}</p>}
+  {
+    link && (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        view project →
+      </a>
+    )
+  }
+</div>
